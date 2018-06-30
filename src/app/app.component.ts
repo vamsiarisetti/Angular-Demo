@@ -30,27 +30,33 @@ export class AppComponent implements OnInit {
       'data': [
         {
           'label': 'Bakersfield Central',
-          'value': '880000'
+          'value': '880000',
+          'color': '#D3D3D3'
         },
         {
           'label': 'Garden Groove harbour',
-          'value': '730000'
+          'value': '730000',
+          'color': '#D3D3D3'
         },
         {
           'label': 'Los Angeles Topanga',
-          'value': '590000'
+          'value': '590000',
+          'color': '#D3D3D3'
         },
         {
           'label': 'Compton-Rancho Dom',
-          'value': '520000'
+          'value': '520000',
+          'color': '#D3D3D3'
         },
         {
           'label': 'Daly City Serramonte',
-          'value': '330000'
+          'value': '330000',
+          'color': '#D3D3D3'
         },
         {
           'label': 'Demo',
-          'value': '-330000'
+          'value': '-330000',
+          'color': '#008000'
         }
       ]
     };
