@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DemoserviceService } from './demoservice.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { single } from './data';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +13,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'app';
 
+    // ngx-charts
+
+    view: any[] = [700, 400];
+
+    // options
+    showXAxis = true;
+    showYAxis = true;
+    gradient = false;
+    showLegend = false;
+    showXAxisLabel = false;
+    xAxisLabel = 'Country';
+    showYAxisLabel = false;
+    yAxisLabel = 'Population';
+
+    colorScheme = {
+      domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA', '#AAAAAA']
+    };
+// ngx-charts
   id = 'chart1';
   width = 600;
   height = 400;
@@ -18,6 +39,9 @@ export class AppComponent implements OnInit {
   dataSource;
 
   constructor(private service: DemoserviceService) {
+
+    Object.assign(this, { single });
+
     this.dataSource = {
       'chart': {
         'caption': 'Harry\'s SuperMart',
@@ -26,6 +50,7 @@ export class AppComponent implements OnInit {
         'theme': 'fint',
         'divLineAlpha': '0',
         'allowPinMode': '0',
+        // 'palettecolors': '#D3D3D3, #008000'
       },
       'data': [
         {
@@ -56,6 +81,11 @@ export class AppComponent implements OnInit {
         {
           'label': 'Demo',
           'value': '-330000',
+          'color': '#008000'
+        },
+        {
+          'label': 'Sample',
+          'value': '-100000',
           'color': '#008000'
         }
       ]
