@@ -1,19 +1,23 @@
 export let single = [
     {
       'name': 'Germany',
-      'value': 8940000
+      'value': 8940000,
+      'value1': 8940000
     },
     {
       'name': 'USA',
-      'value': 5000000
+      'value': 5000000,
+      'value1': 5000000
     },
     {
       'name': 'France',
-      'value': 7200000
+      'value': 7200000,
+      'value1': 7200000
     },
     {
       'name': 'DEMO',
-      'value': -7200000
+      'value': -7200000,
+      'value1': -8200000
     }
   ];
 

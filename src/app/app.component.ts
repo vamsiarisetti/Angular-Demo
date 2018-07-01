@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
     xAxisLabel = 'Country';
     showYAxisLabel = false;
     yAxisLabel = 'Population';
+    showGridLines = false;
 
     colorScheme = {
       domain: ['#AAAAAA', '#AAAAAA', '#AAAAAA', '#5AA454']
@@ -39,7 +40,6 @@ export class AppComponent implements OnInit {
   dataSource;
 
   constructor(private service: DemoserviceService) {
-
     Object.assign(this, { single });
 
     this.dataSource = {
@@ -101,4 +101,30 @@ export class AppComponent implements OnInit {
       res => console.log('response :' + JSON.stringify(res))
     );
   }
+
+  onSelect(event) {
+    console.log('==>' + JSON.stringify(event));
+    console.log('Schemetype : ' + event.Schemetype);
+  }
 }
+
+
+
+/*
+Important text
+
+=============================== NGX - CHARTS ===============================
+npm install @swimlane/ngx-charts --save
+
+Ngx-Charts
+https://stackblitz.com/edit/vertical-bar-chart?embed=1&file=app/app.component.ts
+https://swimlane.gitbook.io/ngx-charts/installing
+
+https://swimlane.gitbook.io/ngx-charts/examples/bar-charts/vertical-bar-chart
+https://swimlane.gitbook.io/ngx-charts/examples/bar-charts/normalized-vertical-bar-chart
+
+-- Create service
+https://github.com/swimlane/ngx-charts/issues/421
+solution :
+https://stackoverflow.com/questions/45532244/unable-to-initialize-ngx-charts-with-api-fetched-data/45533679
+*/
