@@ -12,6 +12,7 @@ import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     HttpClientModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
     // MDBBootstrapModule.forRoot()
-    NgxChartsModule
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

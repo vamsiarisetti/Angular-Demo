@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     yAxisLabel = 'Population';
 
     colorScheme = {
-      domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA', '#AAAAAA']
+      domain: ['#AAAAAA', '#AAAAAA', '#AAAAAA', '#5AA454']
     };
 // ngx-charts
   id = 'chart1';
