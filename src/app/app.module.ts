@@ -14,6 +14,8 @@ import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { WeatherService } from './weather.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxChartsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
