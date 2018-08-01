@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+	Chart.defaults.scale.gridLines.display = false;
+	Chart.defaults.global.tooltips.yAlign = 'right';
+	Chart.defaults.global.tooltips.xAlign = 'right';
+
+
+    let massPopChart = new Chart(myChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:[
+			'Boston',
+			'Worcester',
+			'Springfield',
+			'Lowell',
+			'Cambridge',
+			'New Bedford'
+		],
+        datasets:[{
+          label:'Population',
+		  drawOnChartArea: false,
+          data:[
+            617594,
+            181045,
+            153060,
+            106519,
+            105162,
+            -95072
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'grey',
+            'grey',
+            'grey',
+            'grey',
+            'grey',
+            'green'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'blue',
+		  hoverBackgroundColor: 'white'
+        }]
+      },
+      options:{
+		  scales: {
+			xAxes: [{
+				display: true,
+				barThickness: 50,
+			}],
+            yAxes: [{
+                display: false
+            }]
+        },
+		title:{
+          display:true,
+          text:'Largest Cities In Massachusetts',
+          fontSize:25,
+		  position:'end'
+        },
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:8,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          //enabled:false
+		  yAlign: 'bottom',
+		  xAlign: 'center',
+		  callbacks: {
+				title: function(tooltipItem, data) {
+					yPadding = 100;
+			  return data['labels'][tooltipItem[0]['index']];	// Diplaying label name on Tooltip
+			},
+			label: function(tooltipItem, data) {
+			  return data['datasets'][0]['data'][tooltipItem['index']];		// Displaying value on Tooltip
+			},
+			/*afterLabel: function(tooltipItem, data) {
+			  var dataset = data['datasets'][0];
+			  var percent = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)
+			  //return '(' + percent + '%)';
+			}*/
+		  },
+		  backgroundColor: 'blue',
+		  titleFontSize: 16,
+		  titleFontColor: '#FFF',
+		  bodyFontColor: '#FFF',
+		  bodyFontSize: 14,
+		  displayColors: false,
+        }
+      }
+    });
+  </script>
+</body>
+</html>
