@@ -1,3 +1,11 @@
+<div>
+    <h1>Hello, Welcome to Charts</h1>
+
+    <div *ngIf="chart">
+        <canvas id="canvas" height="80">{{ chart }}</canvas>
+    </div>
+</div>
+
 <div id="myCarousel" class="carousel slide myCarousel" data-interval="false" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active" style="background: grey;"></li>
@@ -33,49 +41,6 @@
     </a>
 </div>
 
-
-<!--  -->
-
-<!-- <ngb-carousel *ngIf="images" style="background: grey; align-self: center;">
-    <ng-template ngbSlide>
-        <img [src]="images[0]" alt="Random first slide">
-        <div class="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
-    </ng-template>
-    <ng-template ngbSlide>
-        <img [src]="images[1]" alt="Random second slide">
-        <div class="carousel-caption">
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-    </ng-template>
-    <ng-template ngbSlide>
-        <img [src]="images[2]" alt="Random third slide">
-        <div class="carousel-caption">
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-    </ng-template>
-    <ng-template ngbSlide>
-        <canvas id="canvas" height="80"></canvas>
-        <div class="carousel-caption">
-            <h3>Fourth slide label</h3>
-            <p>Fourth Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-    </ng-template>
-</ngb-carousel> -->
-
-<!--  -->
-
-<div>
-    <h1>Hello, Welcome to Charts</h1>
-
-    <div *ngIf="chart">
-        <canvas id="canvas" height="80">{{ chart }}</canvas>
-    </div>
-</div>
 
 <!-- 
     npm install rxjs
