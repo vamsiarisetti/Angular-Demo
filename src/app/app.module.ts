@@ -16,9 +16,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { WeatherService } from './weather.service';
 
+// import { CarouselModule } from 'angular4-carousel';
+// import {SlideshowModule} from 'ng-simple-slideshow';
+// import { NgbdCarouselBasic } from './carousel-basic';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent
+    // , NgbdCarouselBasic
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,10 @@ import { WeatherService } from './weather.service';
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
     // MDBBootstrapModule.forRoot()
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // CarouselModule
+    // SlideshowModule
+    NgbModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

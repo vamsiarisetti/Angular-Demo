@@ -8,6 +8,8 @@ import { single } from './data';
 import { WeatherService } from './weather.service';
 import { Chart } from 'chart.js';
 
+import {map} from 'rxjs/operators';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,9 +18,19 @@ import { Chart } from 'chart.js';
 export class AppComponent implements OnInit {
   chart = [];
   title = 'app';
-  constructor(private _weather: WeatherService) { }
+  constructor(private _weather: WeatherService, private _http: HttpClient) { }
+
+  // images: Array<string>;
+  images;
+
+  index=0;
 
   ngOnInit() {
+
+    // this._http.get('https://picsum.photos/list')
+    //     .pipe(map((images: Array<{id: number}>) => this._randomImageUrls(images)))
+    //     .subscribe(images => this.images = images);
+
     this._weather.dailyForecast().subscribe(res => {
 
       let temp_max = res['list'].map(res => res.main.temp_max)
@@ -33,7 +45,9 @@ export class AppComponent implements OnInit {
 
       Chart.defaults.global.responsive = true;
       Chart.defaults.global.tooltips.enabled = false;
-      this.chart = new Chart('canvas', {
+
+      console.log("Index : "+this.index)
+      this.chart = new Chart('canvas' + this.index, {
         type: 'bar',
         data: {
           labels: weatherDates,
@@ -41,7 +55,8 @@ export class AppComponent implements OnInit {
             {
               data: temp_max,
               borderColor: '#3cba9f',
-              fill: true
+              fill: true,
+              backgroundColor: 'grey'
             },
             // {
             //   data: temp_min,
@@ -82,6 +97,97 @@ export class AppComponent implements OnInit {
         }
       })
 
+      // this.index =+ 1;
+      this.chart = new Chart('canvas1', {
+        type: 'bar',
+        data: {
+          labels: weatherDates,
+          datasets: [
+            {
+              data: temp_max,
+              borderColor: '#3cba9f',
+              fill: true,
+              backgroundColor: 'red'
+            },
+          ]
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              barThickness: 50,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                padding: 100
+              }
+            }],
+            yAxes: [{
+              display: false,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                // Include a dollar sign in the ticks
+                callback: function(value, index, values) {
+                    return '$' + value;
+                }
+            }
+            }]
+          }
+        }
+      })
+
+      this.chart = new Chart('canvas2', {
+        type: 'bar',
+        data: {
+          labels: weatherDates,
+          datasets: [
+            {
+              data: temp_max,
+              borderColor: '#3cba9f',
+              fill: true,
+              backgroundColor: 'green'
+            },
+          ]
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              barThickness: 50,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                padding: 100
+              }
+            }],
+            yAxes: [{
+              display: false,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                // Include a dollar sign in the ticks
+                callback: function(value, index, values) {
+                    return '$' + value;
+                }
+            }
+            }]
+          }
+        }
+      })
+
+      this.images = ['/assets/chicago.jpg','/assets/la.jpg','/assets/ny.jpg',this.chart];
+
       // to display values on top of bar
       // https://jsfiddle.net/ca7unnu4/236/
 
@@ -121,6 +227,17 @@ export class AppComponent implements OnInit {
       // 
     })
   }
+
+  demo() {
+    alert("jjjjj")
+  }
+
+  // private _randomImageUrls(images: Array<{id: number}>): Array<string> {
+  //   return [1, 2, 3].map(() => {
+  //     const randomId = images[Math.floor(Math.random() * images.length)].id;
+  //     return `https://picsum.photos/900/500?image=${randomId}`;
+  //   });
+  // }
 }
 
 
